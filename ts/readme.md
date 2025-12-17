@@ -1,7 +1,7 @@
 # TypeScript 架构与类型系统指南
 
-**适用对象**：已掌握上述 JavaScript 内容，希望在大型项目中获得类型安全和开发体验的开发者。
-**目标**：从类型标注开始，掌握接口、泛型、工具类型，最终能够看懂并编写复杂的类型体操，构建健壮的后端/前端架构。
+**适用对象**：已掌握上述 JavaScript 内容，希望在大型项目中获得类型安全和开发体验的开发者。  
+**目标**：从类型标注开始，掌握接口、泛型、工具类型，最终能够看懂并编写复杂的类型体操，构建健壮的后端/前端架构。  
 **版本**：2025 版  
 **适用 TypeScript 版本**：TypeScript 5.6+
 
@@ -27,6 +27,8 @@
   - [1.1.2 tsconfig.json 详解](docs/stage-01-foundation/chapter-02-setup/section-02-tsconfig.md)
   - [1.1.3 编译器选项](docs/stage-01-foundation/chapter-02-setup/section-03-compiler-options.md)
   - [1.1.4 IDE 配置（VSCode、WebStorm）](docs/stage-01-foundation/chapter-02-setup/section-04-ide-config.md)
+  - [1.1.5 TypeScript 直接执行工具](docs/stage-01-foundation/chapter-02-setup/section-05-direct-execution.md)
+  - [1.1.6 编译操作与实践](docs/stage-01-foundation/chapter-02-setup/section-06-compilation.md)
 - [1.2 基础类型系统](docs/stage-01-foundation/chapter-03-basic-types/README.md)
   - [1.2.1 基础类型系统概述](docs/stage-01-foundation/chapter-03-basic-types/section-01-overview.md)
   - [1.2.2 原始类型（string、number、boolean）](docs/stage-01-foundation/chapter-03-basic-types/section-02-primitives.md)
@@ -78,10 +80,10 @@
   - [3.3.2 参数属性（Parameter Properties）](docs/stage-03-oop/chapter-03-modern/section-02-parameter-properties.md)
   - [3.3.3 私有字段（Private Fields）](docs/stage-03-oop/chapter-03-modern/section-03-private-fields.md)
   - [3.3.4 装饰器（Decorators）](docs/stage-03-oop/chapter-03-modern/section-04-decorators.md)
-  - [3.3.4 装饰器深入](docs/stage-03-oop/chapter-03-modern/section-04-decorators-advanced.md)
-  - [3.3.5 装饰器元数据](docs/stage-03-oop/chapter-03-modern/section-05-decorator-metadata.md)
-  - [3.3.6 自定义装饰器](docs/stage-03-oop/chapter-03-modern/section-06-custom-decorators.md)
-  - [3.3.7 装饰器组合](docs/stage-03-oop/chapter-03-modern/section-07-decorator-composition.md)
+  - [3.3.5 装饰器深入](docs/stage-03-oop/chapter-03-modern/section-05-decorators-advanced.md)
+  - [3.3.6 装饰器元数据](docs/stage-03-oop/chapter-03-modern/section-06-decorator-metadata.md)
+  - [3.3.7 自定义装饰器](docs/stage-03-oop/chapter-03-modern/section-07-custom-decorators.md)
+  - [3.3.8 装饰器组合](docs/stage-03-oop/chapter-03-modern/section-08-decorator-composition.md)
 
 ### 阶段四：泛型（Generics）
 
