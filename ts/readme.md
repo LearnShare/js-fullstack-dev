@@ -112,6 +112,10 @@
   - [4.4.1 泛型工具类型概述](docs/stage-04-generics/chapter-04-utility-types/section-01-overview.md)
   - [4.4.2 泛型相关的工具类型](docs/stage-04-generics/chapter-04-utility-types/section-02-generic-utilities.md)
   - [4.4.3 泛型约束工具](docs/stage-04-generics/chapter-04-utility-types/section-03-constraint-tools.md)
+- [4.4 泛型工具类型](docs/stage-04-generics/chapter-04-utility-types/readme.md)
+  - [4.4.1 泛型工具类型概述](docs/stage-04-generics/chapter-04-utility-types/section-01-overview.md)
+  - [4.4.2 泛型相关的工具类型](docs/stage-04-generics/chapter-04-utility-types/section-02-generic-utilities.md)
+  - [4.4.3 泛型约束工具](docs/stage-04-generics/chapter-04-utility-types/section-03-constraint-tools.md)
 
 ### 阶段五：高级类型系统（进阶）
 
