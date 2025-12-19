@@ -1,8 +1,8 @@
-# 2.11.3 自定义错误
+# 2.12.3 自定义错�?
 
 ## 概述
 
-自定义错误让业务语义更清晰，便于分类处理、日志筛选与用户提示。常见场景：校验失败、权限不足、外部服务异常、限流、超时。通过继承 `Error`（或子类）并添加字段（code、status、field、cause）可构建可观测、可恢复的错误体系。
+自定义错误让业务语义更清晰，便于分类处理、日志筛选与用户提示。常见场景：校验失败、权限不足、外部服务异常、限流、超时。通过继承 `Error`（或子类）并添加字段（code、status、field、cause）可构建可观测、可恢复的错误体系�?
 
 ## 基本语法
 
@@ -18,18 +18,18 @@ class CustomError extends Error {
 throw new CustomError('Custom error message', 'CUSTOM_CODE');
 ```
 
-- 继承链：`CustomError` → `Error`
-- `name`：便于日志过滤
-- `code`：机器可读的错误码
+- 继承链：`CustomError` �?`Error`
+- `name`：便于日志过�?
+- `code`：机器可读的错误�?
 
 ## 结构化错误：常用字段
 
-- `name`：错误名称
-- `message`：人类可读
-- `code`：业务/系统错误码（如 `VALIDATION_ERROR`、`AUTH_DENIED`）
-- `status`：HTTP 状态码（如 400/401/429/500）
-- `field`：校验相关字段
-- `cause`：根因（ES2022 原生支持）
+- `name`：错误名�?
+- `message`：人类可�?
+- `code`：业�?系统错误码（�?`VALIDATION_ERROR`、`AUTH_DENIED`�?
+- `status`：HTTP 状态码（如 400/401/429/500�?
+- `field`：校验相关字�?
+- `cause`：根因（ES2022 原生支持�?
 
 ### 使用 cause
 
@@ -86,7 +86,7 @@ class RateLimitError extends Error {
 }
 ```
 
-## 前端应用中的自定义错误
+## 前端应用中的自定义错�?
 
 ### 区分可提示与需上报
 ```js
@@ -100,7 +100,7 @@ class UserFriendlyError extends Error {
 }
 
 function showError(err) {
-  alert(err.userMessage || '出错了');
+  alert(err.userMessage || '出错�?);
   if (err.report !== false) report(err);
 }
 ```
@@ -126,7 +126,7 @@ async function fetchJson(url) {
 }
 ```
 
-## 与 Promise/async 搭配
+## �?Promise/async 搭配
 
 ```js
 async function loadProfile() {
@@ -134,22 +134,22 @@ async function loadProfile() {
     return await fetchJson('/api/profile');
   } catch (err) {
     if (err instanceof ApiError && err.status === 401) {
-      throw new AuthError('登录已过期');
+      throw new AuthError('登录已过�?);
     }
     throw err; // 未知错误上抛
   }
 }
 ```
 
-## 日志与监控
+## 日志与监�?
 
-- 记录 `name`、`code`、`status`、`message`、`stack`、`cause`。
-- 避免向用户泄露敏感栈信息；仅上报到监控平台（Sentry/自建）。
-- 结合 Source Map 还原压缩代码栈。
+- 记录 `name`、`code`、`status`、`message`、`stack`、`cause`�?
+- 避免向用户泄露敏感栈信息；仅上报到监控平台（Sentry/自建）�?
+- 结合 Source Map 还原压缩代码栈�?
 
 ## 序列化与传输
 
-原生 Error 不可直接 JSON 序列化，需自定义 toJSON：
+原生 Error 不可直接 JSON 序列化，需自定�?toJSON�?
 
 ```js
 class SerializableError extends Error {
@@ -166,32 +166,32 @@ class SerializableError extends Error {
 
 ## 常见陷阱
 
-- 继承 Error 时忘记 `super(message)`，导致 message/stack 丢失。  
-- 覆盖 `name` 但未设置 `this.name`，影响日志筛选。  
-- 重新抛出时丢失原始错误：可用 `cause` 或自定义 `originalError`。  
-- 直接向用户暴露后端栈信息：注意脱敏与友好提示。  
+- 继承 Error 时忘�?`super(message)`，导�?message/stack 丢失�? 
+- 覆盖 `name` 但未设置 `this.name`，影响日志筛选�? 
+- 重新抛出时丢失原始错误：可用 `cause` 或自定义 `originalError`�? 
+- 直接向用户暴露后端栈信息：注意脱敏与友好提示�? 
 
-## 最佳实践
+## 最佳实�?
 
-1) 为可预期的业务场景定义语义化错误类（验证/权限/限流/超时）。  
-2) 添加结构化字段（code/status/field/cause），方便监控和分流处理。  
-3) 用 `cause` 传递根因，保留完整链路。  
-4) 前端提示与日志上报分离：对用户友好提示，对监控保留详情。  
-5) 序列化前显式挑选字段，避免敏感信息泄露。  
-6) 在测试中断言错误类型与 code，确保行为稳定。  
+1) 为可预期的业务场景定义语义化错误类（验证/权限/限流/超时）�? 
+2) 添加结构化字段（code/status/field/cause），方便监控和分流处理�? 
+3) �?`cause` 传递根因，保留完整链路�? 
+4) 前端提示与日志上报分离：对用户友好提示，对监控保留详情�? 
+5) 序列化前显式挑选字段，避免敏感信息泄露�? 
+6) 在测试中断言错误类型�?code，确保行为稳定�? 
 
 ## 练习
 
-1. 定义 `ValidationError`、`AuthError`，在表单与鉴权流程中抛出并分类处理。  
-2. 为 API 调用封装 `ApiError`，包含 status、响应体、cause，并在上层转换为用户友好提示。  
-3. 实现 `SerializableError` 的 `toJSON`，并在前后端通信中传递。  
-4. 将底层第三方库错误包装为业务错误，同时保留原始 `cause`。  
-5. 在测试中模拟抛出自定义错误，断言 `name/code/status`，确保契约不破坏。  
+1. 定义 `ValidationError`、`AuthError`，在表单与鉴权流程中抛出并分类处理�? 
+2. �?API 调用封装 `ApiError`，包�?status、响应体、cause，并在上层转换为用户友好提示�? 
+3. 实现 `SerializableError` �?`toJSON`，并在前后端通信中传递�? 
+4. 将底层第三方库错误包装为业务错误，同时保留原�?`cause`�? 
+5. 在测试中模拟抛出自定义错误，断言 `name/code/status`，确保契约不破坏�? 
 
 ## 小结
 
-- 自定义错误通过继承 Error 并添加结构化字段，使错误语义清晰、可观测、可分流。  
-- 使用 `cause` 保留根因；用 `code/status` 支撑自动化处理；用 `userMessage` 支撑友好提示。  
-- 结合监控上报与测试断言，构建稳健的错误处理体系。  
+- 自定义错误通过继承 Error 并添加结构化字段，使错误语义清晰、可观测、可分流�? 
+- 使用 `cause` 保留根因；用 `code/status` 支撑自动化处理；�?`userMessage` 支撑友好提示�? 
+- 结合监控上报与测试断言，构建稳健的错误处理体系�? 
 
-完成本章学习后，继续学习下一章：JavaScript 版本新特性。
+完成本章学习后，继续学习下一章：JavaScript 版本新特性�?
