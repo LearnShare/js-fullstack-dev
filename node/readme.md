@@ -139,6 +139,11 @@
   - [3.6.4 验证库](docs/stage-03-toolchain/chapter-06-popular-libs/section-04-validation-libs.md)
   - [3.6.5 Markdown 处理库](docs/stage-03-toolchain/chapter-06-popular-libs/section-05-markdown.md)
   - [3.6.6 其他常用库](docs/stage-03-toolchain/chapter-06-popular-libs/section-06-other-libs.md)
+- [3.7 应用领域开发](docs/stage-03-toolchain/chapter-07-applications/readme.md)
+  - [3.7.1 CLI 开发](docs/stage-03-toolchain/chapter-07-applications/section-01-cli.md)
+  - [3.7.2 爬虫开发](docs/stage-03-toolchain/chapter-07-applications/section-02-crawler.md)
+  - [3.7.3 自动化脚本](docs/stage-03-toolchain/chapter-07-applications/section-03-automation.md)
+  - [3.7.4 数据处理](docs/stage-03-toolchain/chapter-07-applications/section-04-data-processing.md)
 
 ### 阶段四：Web 框架与 API 开发（核心技能）
 
