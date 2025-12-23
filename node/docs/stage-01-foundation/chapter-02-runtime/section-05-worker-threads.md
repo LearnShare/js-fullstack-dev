@@ -58,7 +58,7 @@ if (isMainThread) {
     workerData: { limit: 10000000 }
   });
 
-  worker.on('message', (count) => {
+  worker.on('message', (count: number): void => {
     console.log(`[Main] 计算完成！1000万以内的质数共有: ${count} 个`);
   });
 

@@ -216,16 +216,16 @@ async function processImage(filePath: string) {
 
 ```ts
 // 网络通信示例
-import http from 'node:http';
+import { createServer, IncomingMessage, ServerResponse } from 'node:http';
 
-const server = http.createServer((req, res) => {
+const server = createServer((req: IncomingMessage, res: ServerResponse): void => {
     let data = Buffer.alloc(0);
     
-    req.on('data', (chunk: Buffer) => {
+    req.on('data', (chunk: Buffer): void => {
         data = Buffer.concat([data, chunk]);
     });
     
-    req.on('end', () => {
+    req.on('end', (): void => {
         // 处理完整数据
     });
 });

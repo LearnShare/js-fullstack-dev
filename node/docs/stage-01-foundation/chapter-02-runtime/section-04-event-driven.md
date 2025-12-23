@@ -49,9 +49,9 @@ Node.js 的异步 API 通常遵循“错误优先（Error-First）”的回调�
 // 文件: blocking-effect.ts
 // 功能: 演示主线程阻塞对高并发服务的致命影响
 
-import http from 'node:http';
+import { createServer, IncomingMessage, ServerResponse } from 'node:http';
 
-const server = http.createServer((req, res) => {
+const server = createServer((req: IncomingMessage, res: ServerResponse): void => {
   if (req.url === '/block') {
     // 逻辑错误：在主线程进行长达 5 秒的同步计算
     const start = Date.now();
@@ -65,7 +65,7 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(3000, () => {
+server.listen(3000, (): void => {
   console.log('服务器已启动: http://localhost:3000');
 });
 ```

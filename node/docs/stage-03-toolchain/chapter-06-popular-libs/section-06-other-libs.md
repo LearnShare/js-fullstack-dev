@@ -75,12 +75,12 @@ logger.error('Error message');
 import cron from 'node-cron';
 
 // 每分钟执行
-cron.schedule('* * * * *', () => {
+cron.schedule('* * * * *', (): void => {
     console.log('Running every minute');
 });
 
 // 每天凌晨执行
-cron.schedule('0 0 * * *', () => {
+cron.schedule('0 0 * * *', (): void => {
     console.log('Running daily at midnight');
 });
 ```
@@ -137,7 +137,7 @@ const logger = winston.createLogger({
 });
 
 // 定时任务
-const task = cron.schedule('0 0 * * *', () => {
+const task = cron.schedule('0 0 * * *', (): void => {
     logger.info('Daily task executed');
 }, {
     scheduled: false
@@ -208,7 +208,7 @@ logger.info('Application started');
 // 定时任务示例
 import cron from 'node-cron';
 
-cron.schedule('0 0 * * *', () => {
+cron.schedule('0 0 * * *', (): void => {
     // 每天凌晨执行
 });
 ```

@@ -51,14 +51,16 @@ Node.js 进程启动后，Libuv 会开启一个无限循环（Tick），其物�
 
 import { readFile } from 'node:fs';
 
-readFile('package.json', () => {
+import { readFile } from 'node:fs';
+
+readFile('package.json', (): void => {
   console.log('--- 进入 Poll 阶段回调 ---');
 
-  setTimeout(() => console.log('1. Timers 阶段: setTimeout'), 0);
-  setImmediate(() => console.log('2. Check 阶段: setImmediate'));
+  setTimeout((): void => console.log('1. Timers 阶段: setTimeout'), 0);
+  setImmediate((): void => console.log('2. Check 阶段: setImmediate'));
 
-  process.nextTick(() => console.log('3. 微任务: nextTick'));
-  Promise.resolve().then(() => console.log('4. 微任务: Promise'));
+  process.nextTick((): void => console.log('3. 微任务: nextTick'));
+  Promise.resolve().then((): void => console.log('4. 微任务: Promise'));
 });
 ```
 

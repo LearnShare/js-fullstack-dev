@@ -54,7 +54,9 @@ import { readFile } from 'node:fs';
 console.log('1. 开始读取文件...');
 
 // 异步读取文件，不阻塞后续代码
-readFile('package.json', 'utf8', (err, data) => {
+import { readFile } from 'node:fs';
+
+readFile('package.json', 'utf8', (err: NodeJS.ErrnoException | null, data: string): void => {
   if (err) throw err;
   console.log('2. 文件内容已读取完毕');
 });
